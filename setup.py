@@ -40,6 +40,6 @@ setuptools.setup(
 	python_requires = '>3.0',
 	install_requires = get_requirements( 'requirements.txt' ),
 	entry_points = {
-		'markdown.extensions': [ 'csv2md = csv2md.csv2md:Csv2MdExtension' ]
+		'markdown.extensions': [ 'csv2md = package.csv2md.csv2md:Csv2MdExtension' ]
 	}
 )
