@@ -1,0 +1,2 @@
+Markdown>=3.3.6
+mdtable>=0.2
