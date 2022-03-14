@@ -125,4 +125,4 @@ venv.bak/
 dmypy.json
 
 # project specific
-tests/fixtures/*.html
+package/tests/fixtures/*.html

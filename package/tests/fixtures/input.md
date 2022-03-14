@@ -1,3 +1,3 @@
 # Example Output
 
-{@csv "./example.csv"}
+{@csv "./package/tests/fixtures/example.csv"}
