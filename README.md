@@ -5,11 +5,22 @@ See: https://pypi.org/project/mdtable/
 ## Example Input
 
 ```
-
+@csv"./path/to/my/file.csv"
 ```
 
-## Example Output
+## Example Output (markdown)
 
 ```
-
+|Code              |Prompt                           |Type     |Required|
+|------------------|---------------------------------|---------|--------|
+|question_type     |Question Type                    |select   |Yes     |
+|                  |facet                            |         |No      |
+|                  |value                            |         |No      |
+|                  |hybrid                           |         |No      |
+|facet_field       |Facet Field                      |text     |No      |
+|keyword           |Keyword (over heading)           |text     |No      |
+|short_description |Short Description (under heading)|memo     |No      |
+|long_description  |Long Description (in popup)      |memo     |No      |
+|load_answer_images|Load Answer Images               |checkbox |No      |
+|disable_when_true |Disable When True                |multitext|No      |
 ```
