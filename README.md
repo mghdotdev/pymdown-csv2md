@@ -8,7 +8,7 @@ See: https://pypi.org/project/mdtable/
 | --- | --- | --- |
 | base_path | `'.'` | Base path from where relative paths are calculated. |
 | padding | `1` | Padding to use in raw formatted markdown table. |
-| delimiter | `','` | Delimiter character in CSV file |
+| delimiter | `','` | Delimiter character in CSV file. |
 | quotechar | `'"'` | Quote character in CSV file. |
 | escapechar | `''` | Escape character in CSV file. |
 
