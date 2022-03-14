@@ -42,6 +42,7 @@ class Cvs2MdProcessor(Preprocessor):
 				markdown_table = MDTable(file_path, self.aligns, self.padding, self.delimiter, self.quotechar, self.escapechar)
 				table = markdown_table.get_table()
 				table_lines = table.splitlines()
+				table_lines.append('\n')
 				self.cache[file_path] = table_lines
 		except Exception as e:
 			log.exception(' Could not find file: {}'.format(file_path))
