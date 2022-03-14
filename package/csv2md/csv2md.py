@@ -5,7 +5,7 @@ import logging
 import re
 import os
 
-RE_CSV_FILE_INCLUDE = r'{@csv "([^\s"]+\.csv)"}'
+RE_CSV_FILE_INCLUDE = r'@csv"([^\s"]+\.csv)"'
 
 logging.basicConfig()
 LOGGER_NAME = 'csv2md'
@@ -18,7 +18,11 @@ class Cvs2MdProcessor(Preprocessor):
 		# Compile regex
 		self.compiled_regex = re.compile(RE_CSV_FILE_INCLUDE)
 
+		# Create cache
+		self.cache = {}
+
 		# Set Config
+		self.base_path = config['base_path'][0]
 		self.aligns = config['aligns'][0]
 		self.padding = config['padding'][0]
 		self.delimiter = config['delimiter'][0]
@@ -32,11 +36,15 @@ class Cvs2MdProcessor(Preprocessor):
 		table_lines = []
 		try:
 			file_path = self.resolve_file_path(file_path)
-			markdown_table = MDTable(file_path, self.aligns, self.padding, self.delimiter, self.quotechar, self.escapechar)
-			table = markdown_table.get_table()
-			table_lines = table.split('\n')
+			if file_path in self.cache:
+				table_lines = self.cache[file_path]
+			else:
+				markdown_table = MDTable(file_path, self.aligns, self.padding, self.delimiter, self.quotechar, self.escapechar)
+				table = markdown_table.get_table()
+				table_lines = table.splitlines()
+				self.cache[file_path] = table_lines
 		except Exception as e:
-			log.exception('Error: Could not find file: {}'.format(file_path))
+			log.exception(' Could not find file: {}'.format(file_path))
 		return table_lines
 
 	def run(self, lines = []):
@@ -69,6 +77,10 @@ class Csv2MdExtension(Extension):
 	def __init__(self, *args, **kwargs):
 
 		self.config = {
+			'base_path': [
+				'.',
+				'Base path from where relative paths are calculated.'
+			],
 			'aligns': [
 				None,
 				'Tuple of alignments, must have same number as number of columns.'
