@@ -18,9 +18,12 @@ class Cvs2MdProcessor(Preprocessor):
 		# Compile regex
 		self.compiled_regex = re.compile(RE_CSV_FILE_INCLUDE)
 
-		# Set config variables
-		self.base_path = config['base_path'][0]
-		self.encoding = config['encoding'][0]
+		# Set Config
+		self.aligns = config['aligns'][0]
+		self.padding = config['padding'][0]
+		self.delimiter = config['delimiter'][0]
+		self.quotechar = config['quotechar'][0]
+		self.escapechar = config['escapechar'][0]
 	
 	def resolve_file_path(self, file_path):
 		return os.path.normpath(os.path.join(self.base_path, os.path.expanduser(file_path)))
@@ -29,7 +32,7 @@ class Cvs2MdProcessor(Preprocessor):
 		table_lines = []
 		try:
 			file_path = self.resolve_file_path(file_path)
-			markdown_table = MDTable(file_path)
+			markdown_table = MDTable(file_path, self.aligns, self.padding, self.delimiter, self.quotechar, self.escapechar)
 			table = markdown_table.get_table()
 			table_lines = table.split('\n')
 		except Exception as e:
@@ -43,7 +46,6 @@ class Cvs2MdProcessor(Preprocessor):
 			offset = 0
 			matches = self.compiled_regex.finditer(line)
 			for match in matches:
-				start_index, end_index = match.span()
 				total_match = match.group(0)
 
 				# Get table text
@@ -52,20 +54,13 @@ class Cvs2MdProcessor(Preprocessor):
 				# Output result to total_result
 				if len(result) == 0:
 					result = [total_match]
-				if result:
-					# result has at least one element
-					if total_result:
-						total_result[-1] = ''.join([total_result[-1], line[offset:start_index], result[0] ])
-						total_result.extend(result[1:])
-					else:
-						total_result = [''.join([line[offset:start_index], element]) for element in result]
 				else:
-					total_result.append(line[offset:start_index])
+					total_result = result
+
 			# All replacements are done, copy the rest of the string
-			if total_result:
-				total_result[-1] = ''.join([total_result[-1], line[offset:]])
-			else:
+			if not total_result:
 				total_result.append(line[offset:])
+				
 			new_lines.extend(total_result)
 
 		return new_lines
@@ -74,13 +69,25 @@ class Csv2MdExtension(Extension):
 	def __init__(self, *args, **kwargs):
 
 		self.config = {
-			'base_path': [
-				'.',
-				'Base path from where relative paths are calculated'
+			'aligns': [
+				None,
+				'Tuple of alignments, must have same number as number of columns.'
 			],
-			'encoding': [
-				'utf-8',
-				'Encoding of the files.'
+			'padding': [
+				1,
+				'Padding to use in raw formatted markdown table.'
+			],
+			'delimiter':  [
+				",",
+				'Delimiter character in CSV file.'
+			],
+			'quotechar': [
+				'"',
+				'Quote character in CSV file.'
+			],
+			'escapechar':  [
+				"",
+				'Escape character in CSV file.'
 			]
 		}
 
