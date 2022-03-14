@@ -7,7 +7,6 @@ See: https://pypi.org/project/mdtable/
 | Setting | Default | Description |
 | --- | --- | --- |
 | base_path | `'.'` | Base path from where relative paths are calculated. |
-| aligns | `None` | Tuple of alignments, must have same number as number of columns. |
 | padding | `1` | Padding to use in raw formatted markdown table. |
 | delimiter | `','` | Delimiter character in CSV file |
 | quotechar | `'"'` | Quote character in CSV file. |
