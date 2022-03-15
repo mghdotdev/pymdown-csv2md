@@ -1,0 +1,120 @@
+Code,Name,Group,Field Type,Type,Additional Information,Facet
+agpoolbrace,Above Ground Pool Buttress Information,Above Ground Pool Custom Fields,textfield,product,"Information on the oval side-support type. Usually a manufacturer specific term. ""Space Saver Buttresses"" ""Com-Pac Side Supports"" ""Standard Braces""",No
+agpoolsalt,Above Ground Pool Salt Compatible,Above Ground Pool Custom Fields,textfield,product,"Used for compatibility filtering in Addon Categories.
+Yes/No",No
+agpoolsemi,Above Ground Pool - Semi Inground Install?,Above Ground Pool Custom Fields,checkbox,product,Check box if pool can be installed semi-inground,No
+agpoolss,Above Ground Pool Stainless Service Panel,Above Ground Pool Custom Fields,checkbox,product,Check box if pool has stainless steel service panel.,No
+agpooltop,Above Ground Pool Top Seat,Above Ground Pool Custom Fields,textfield,product,"Top Seat width/type. Example: 8"" Variable Width Resin Top Seats",No
+agpoolvert,Above Ground Pool Uprights,Above Ground Pool Custom Fields,textfield,product,"Upright width/type. Example: 7"" Coated Steel Uprights",No
+ag_package_price,Above Ground Package Price,Above Ground Pool Custom Fields,textfield,product,The price of an Above Ground Pool with its 'standard loaded components',No
+allows_overlap,Allows Overlap,Pool Liner Custom Fields,textfield,product,Set to yes if liner pattern is available in overlap.,No
+anchor_count,Anchor Count,General Custom Fields,textfield,product,The number of anchors/sockets needed for a handrails or ladder.,No
+bolt_count,Bolt Count,Inground Pool Custom Fields,textfield,product,"Used in the KitBuilder - Determines the number of bolts the product requires. Applies to wall type products,",No
+border,Liner Border (No Tile),Pool Liner Custom Fields,textfield,product,"Available values: Has Border, No Tile, or Truestone",No
+collection,Collection,General Custom Fields,textfield,product,"Similar to model or 'pattern', but one 'tier' up. used for things like: Liner Collections, ""Full Floor Series"", ""Deck Lock"" collection",No
+color,Color,General Custom Fields,textfield,product,Product Color,No
+common_search_terms,Common Search Terms,Availability Custom Fields,textfield,product,Comma Separated List of common interchangeable search terms for this item,No
+compatible_with,Compatible With Pool Product,General Custom Fields,multitext,product,Add a list of master pool product codes that are compatible with this product. (used to add items to SearchSpring categories in the kits that might have been filtered out otherwise). Primarily used for VOS products on Radius Pools,No
+connecting_radius,Connecting Radius,Inground Pool Step Custom Fields,textfield,product,"The radius that a vinyl over step connects to. 
+
+It can be different than the radius of the step.",No
+corner_radius,Corner Radius,General Custom Fields,textfield,product,"Corner radius amount:
+6""|24""|48""
+
+Used for many different filtering things in the kit builder: Coping, Steps, Panel Type. Used on kit-products and master pool products.",No
+country_of_origin,Country of Origin,General Custom Fields,textfield,product,A product's country of origin. Commonly used for pool liner material. ie North America,No
+cover_size,Cover Size,Pool Cover Custom Fields,textfield,product,Cover Length and Width in one field,No
+cover_strap_spacing,Cover Strap Spacing,Pool Cover Custom Fields,textfield,product,Safety Cover Strap Spacing. Commonly 3x3 or 5x5,No
+csc_equation,Custom Safety Cover Equation,Pool Cover Custom Fields,multitext,product,"Use `mathjs` function expression syntax:
+
+https://mathjs.org/docs/expressions/syntax.html#functions",No
+disable_purchase,Disable Purchase?,Availability Custom Fields,checkbox,product,Check this box to remove the add-to-cart form on this product page.,No
+disable_searchspring,Disable SearchSpring?,Availability Custom Fields,checkbox,product,"Check this box to exclude this product from showing up in searchspring results. (It will still be included in the feed so it works with the kit, but it will be excluded from the regular site-search)",No
+exclude_searchspring,Exclude From SearchSpring,Availability Custom Fields,checkbox,product,Check this box to exclude this product from showing up in searchspring results completely. (Won't be in kit or search),No
+feature,Feature,General Custom Fields,multitext,product,"General feature of a product. Used in many different product types. Liners, Covers, Pool Panels, Filters, Etc.",No
+filter_media_amount,Filter Media Amount,General Custom Fields,textfield,product,Used to determine default quantity for Filter Media products. Used in AG Kit Builder,No
+for_pool,For Pool Type,General Custom Fields,textfield,product,"Vinyl over Steps: To determine if the step is for straight-wall pools or radius pools.
+Normal Products: To show if the product is strictly for inground or above ground.",No
+for_product_type,For Product Type,General Custom Fields,multitext,product,Used in the KitBuilder - matches to the `f_type` custom field used as a facet in SearchSpring for compatibility.,No
+f_material,Material,General Custom Fields,textfield,product,"Product Material Type - what it is made of. Currently used on pool steps (thermoplastic, acrylic, steel, polymer),",No
+f_shape,Shape,General Custom Fields,textfield,product,General Shape value,No
+f_size,Size,General Custom Fields,textfield,product,Generalized size field. Good for data-filtering in Excel.,No
+f_type,Type,General Custom Fields,textfield,product,General Type for a product.,No
+f_warranty,Warranty Length,General Custom Fields,textfield,product,Warranty length/type,No
+gallon_capacity,Gallon Capacity,General Custom Fields,textfield,product,"Used for compatibility filtering in Addon Categories of AG Kit Builder.
+Cross compatibility between AG Master Product and Add On Product like salt system, filter system, etc...
+
+Also used in normal categories.",No
+height,Height,General Custom Fields,textfield,product,General product height,No
+hp,Horsepower,General Custom Fields,multitext,product,"Commonly used for pumps, pump/filter combo. Common values: 1.0, 1.5, 2.0 etc...
+Multi-Value field.
+Pipe separate multiple values (example used for master pump product).",No
+ht_filter,Hot Tub Filter,Hot Tubs/Spas,textfield,product,Filter size for hot tubs,No
+ht_jet_count,Jet Count,Hot Tubs/Spas,textfield,product,Number of jets for a hot tub/spa,No
+installation_product_code,Installation Product Code,Above Ground Pool Custom Fields,multitext,product,For Above Ground Pools: Add a product code for the matching installation product. Applies filter to the installation category in the Kit Builder.,No
+installation_quantity,Installation Quantity,<Default>,textfield,product,The amount of quantity to set for the product in the KitBuilder when installing an addon.,No
+install_product,Install Product,General Custom Fields,checkbox,product,Check the box if this product should force the installation agreement in checkout.,No
+interchange_num,Interchange Number,General Custom Fields,textfield,product,Distributor numbers or alternate skus for a product. Comma separated.,No
+kit_only,Kit Only?,Availability Custom Fields,checkbox,product,"Check this box to designate this as a kit only product (this is the same thing as marking it ""Disable Purchase"" & ""Disable SearchSpring"")",No
+kit_price,Kit Price,General Custom Fields,textfield,product,A alternate price value defined by RSP. Used to discount products to a specific price when purchased in a Kit.,No
+labor_product_code,Labor Product Code,<Default>,textfield,product,"Used for the local installation feature in the KitBuilder. Selected products report this value to custom logic value `labor_product_code`. Used to filter results in ""Addon Installation"" category.",No
+large_pool_compatible,Large Pool Compatible,General Custom Fields,textfield,product,"Custom field for Inground Pool Skimmer master products for Kit-Builder Compatibility Filtering. Value of ""Yes"" means the product is compatible with a large pool.",No
+length,Length,General Custom Fields,textfield,product,The length of the product. Used for compatibility filtering in Addon Categories.,No
+manufacturer,Manufacturer,General Custom Fields,textfield,product,Used for compatibility filtering in Addon Categories.,No
+minimum_liner_subtotal,Minimum Liner Subtotal,Pool Liner Custom Fields,textfield,product,This is the minimum charge for a inground liner when it is purchased in the liner tool or in the kit.,No
+model,Model,General Custom Fields,textfield,product,"A product's model type. Examples: Pro-Series Filters, Superpump, MaxFlo, ColorLogic, etc...",No
+num_z_brace,Z Brace Count,Inground Pool Panel Custom Fields,textfield,product,Number of Z-Braces on a pool panel,No
+other_step,Other Step,Pool Cover Custom Fields,textfield,product,"Used for stock safety cover finder. Enter value of ""No"" if cover has no second step section built into it.",No
+panel_cutout_location,Panel Cutout Location,Inground Pool Panel Custom Fields,textfield,product,"If Panel has cutout, what is location? Available Values: Offset Left, Offset Right, Center",No
+panel_cutout_offset,Panel Cutout Offset,Inground Pool Panel Custom Fields,textfield,product,"If panel has a cutout, what is the offset amount in feet from center.",No
+panel_cutout_type,Panel Cutout Type,Inground Pool Panel Custom Fields,textfield,product,"If a panel has a cutout, what is it for? Values are: Light, Return, 1084 Skimmer, 1085 Skimmer, AquaGenie",No
+panel_radius,Panel Radius,Inground Pool Panel Custom Fields,textfield,product,"If panel is a curved/radius panel, what is the radius in feet?",No
+panel_space,Panel Space,Inground Pool Step Custom Fields,textfield,product,The amount of connecting_radius panel space taken by a radius pool step.,No
+Pattern,Pattern,Pool Liner Custom Fields,textfield,product,Pattern name (Wall Thickness/Floor Thickness) or (Wall Thickness) if same wall/floor or one uniform pattern.,No
+perimeter,Perimeter,General Custom Fields,textfield,product,Pre-calculated perimeter value of the pool. Used for compatibility filtering in Addon Categories.,No
+per_space_req,Perimeter Space Required,Inground Pool Step Custom Fields,textfield,product,The amount of pool perimeter space required by a step (both VOS and Thermoplastic/Acrylic),No
+pool_fitment,Pool Fitment,Inground Pool Step Custom Fields,multitext,product,"Field is used for adding steps to Radius Pools.
+
+Enter ""all"" when you want this product to work for all pools
+
+Enter a comma separated list of pool product-codes that this product fits.",No
+port_size,Port Size,General Custom Fields,multitext,product,"Used for pool pumps and filters to show port size. Format example: 1.5""",No
+prod_attr_note,Product Attribute Note,General Custom Fields,textfield,product,Any value entered here will be added as an attribute of the item on the order.,No
+prod_note,Product Note,General Custom Fields,textfield,product,General misc notes about a product,No
+quantity_label,Quantity Label,General Custom Fields,textfield,product,"Populate with short prompt to display in front of Basket-Item Quantiy
+Enter ""0"" to hide the quantity
+Leave it Blank for default quantity display",No
+rsp_cover_type,RSP Cover Type,Pool Cover Custom Fields,textfield,product,"RSP's 'standard' version of cover type (mesh, solid, solid w/pump)",No
+rsp_sc_step_location,RSP Safety Cover Step Location,Pool Cover Custom Fields,textfield,product,"RSP's standard of what the step location is (when standing at shallow end looking toward deep end) Values: Center End, Left Side Flush, Right Side Flush, Grecian Center End, Left Side 2' Offset...etc...Used in Cover Tool",No
+self_priming,Self Priming,General Custom Fields,textfield,product,Is a pool pump self priming? Yes/No,No
+shiptime,Shipping Time Estimate,Availability Custom Fields,textfield,product,Shipping time estimate in business days. Example value: 1-2 or 2-3,No
+shortdesc,Short Description,General Custom Fields,textfield,product,Used on question builder for covers. Was previously used for manually overriding the short description on category pages (on old site).,No
+short_name,Short Name,General Custom Fields,textfield,product,Enter a shorter/generic version of the product name to be pulled in on the Kit Builder. Commonly used on Inground Liner Products.,No
+skimmer_type,Skimmer Type,General Custom Fields,dropdown,product,"Each Above Ground and Inground Pool needs to have a “Skimmer Type” custom field applied to it.
+
+Then each Skimmer product will need to have it’s “Skimmer Type” field filled out.",No
+solid_cover_type,Solid Cover Type,Pool Cover Custom Fields,textfield,product,"Used to elaborate/specify what type of solid cover it is. Sure-Flo Full Length Drain, Kleen-Screen Drain Panel, etc...",Yes
+speed,Speed,General Custom Fields,textfield,product,"Pump drive type. Single Speed, Two Speed, Variable Speed",Yes
+sq_ft,Square Footage,General Custom Fields,textfield,product,"Pre-calculated square footage value. Used within the builder to populate SQFT for non-rectangular pool shapes. Used for compatibility filtering in Addon Categories.
+
+Used for square foot on IG pools.
+
+Used for square foot cap on Custom Safety Covers.",No
+ss_order,SearchSpring Display Order,<Default>,textfield,product,not used by RSP,No
+static_included_products,Static Included Products,General Custom Fields,multitext,product,"Formatting = product_code:quantity
+Used in kit builder to automatically add products to the kit without them being part of an inventory variant.",No
+step_back,Step Back Style,Inground Pool Step Custom Fields,textfield,product,Used to determine if a step is a straight back step or roman back step. Other types may be available such as 'french curve',No
+step_location,Step Location,Pool Cover Custom Fields,textfield,product,"Step location for safety covers. Right, Left, or Center. Used in cover finder tool",No
+step_offset,Step Offset,Pool Cover Custom Fields,textfield,product,"Step offset. Values could be: None, 1', 2', 4' etc... If no value is entered, then the cover will not show up in the cover tool.",No
+step_radius,Step Radius,Inground Pool Step Custom Fields,textfield,product,For the Radius of a Vinyl Over Step,No
+step_size,Step Size,Pool Cover Custom Fields,textfield,product,"Step size for Cover Tool. No Step, 4' x 6' Step, 4' x 8' Step, etc...",No
+step_sub_type,Step Sub Type,Inground Pool Step Custom Fields,textfield,product,"For vinyl-over steps and thermo/acrylic. Common Values for VOS: Open Top, Open Top|Drop In (this one is multi-value format), Closed Top. Common values for thermo/acrylic: Bullnose, Cantilever",No
+step_texture,Step Texture Available,Pool Liner Custom Fields,textfield,product,Yes or No. Is texture available on the liner.,No
+step_type,Step Type,Inground Pool Step Custom Fields,textfield,product,"For VOS & Thermo/Acrylic. Value is Radius_Step for VOS or thermo/acrylic that go on radius pools. Value is Straight_Step for VOS that go on straight wall pools. Value is Outside_Step for thermo/acrylic bolt-on style, Value is Full_Width for VOS full width style. Value is Corner_Step for VOS or Thermo in-pool corner step.",No
+s_shape,Pool Shape,General Custom Fields,multitext,product,The shape of the pool. Used for compatibility filtering in Addon Categories.,No
+s_wall,Wall Material,General Custom Fields,textfield,product,The wall material of the product. Used for compatibility filtering in Addon Categories.,Yes
+s_wheight,Wall Height,General Custom Fields,textfield,product,"The wall height of the product (liner, AG pool, IG pool, pool panel). Used for compatibility filtering in Addon Categories.",Yes
+s_width,Width,General Custom Fields,textfield,product,The width of the product. Used for compatibility filtering in Addon Categories.,No
+thickness,Thickness,Pool Liner Custom Fields,textfield,product,Mil or Gauge thickness for inground or above ground liners. Format for different wall/floor thickness: 28 Mil Wall/20 Mil Floor,No
+warehouse_location,Warehouse Location,General Custom Fields,multitext,product,Used within the kit builder to determine if the product should be discounted to their Kit Price (Above Ground only). Kit and Product must having matching value to apply kit price. Can be multi-valued.,No
+water_color,Water Color,Pool Liner Custom Fields,dropdown,product,Color of water for inground or above ground liner.,No

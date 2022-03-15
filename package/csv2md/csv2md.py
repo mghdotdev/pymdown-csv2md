@@ -11,6 +11,9 @@ logging.basicConfig()
 LOGGER_NAME = 'csv2md'
 log = logging.getLogger(LOGGER_NAME)
 
+def replace_new_lines(str):
+	return str.replace('\n', ' ')
+
 class Cvs2MdProcessor(Preprocessor):
 	def __init__(self, md, config):
 		super(Cvs2MdProcessor, self).__init__(md)
@@ -23,7 +26,6 @@ class Cvs2MdProcessor(Preprocessor):
 
 		# Set Config
 		self.base_path = config['base_path'][0]
-		self.aligns = config['aligns'][0]
 		self.padding = config['padding'][0]
 		self.delimiter = config['delimiter'][0]
 		self.quotechar = config['quotechar'][0]
@@ -39,9 +41,9 @@ class Cvs2MdProcessor(Preprocessor):
 			if file_path in self.cache:
 				table_lines = self.cache[file_path]
 			else:
-				markdown_table = MDTable(file_path, self.aligns, self.padding, self.delimiter, self.quotechar, self.escapechar)
+				markdown_table = MDTable(file_path, None, self.padding, self.delimiter, self.quotechar, self.escapechar)
 				table = markdown_table.get_table()
-				table_lines = table.splitlines()
+				table_lines = list(map(replace_new_lines, re.split('(?<=\\|)\\n', table)))
 				table_lines.append('\n')
 				self.cache[file_path] = table_lines
 		except Exception as e:
@@ -81,10 +83,6 @@ class Csv2MdExtension(Extension):
 			'base_path': [
 				'.',
 				'Base path from where relative paths are calculated.'
-			],
-			'aligns': [
-				None,
-				'Tuple of alignments, must have same number as number of columns.'
 			],
 			'padding': [
 				1,
