@@ -15,7 +15,7 @@ See: https://pypi.org/project/mdtable/
 ## Example Input
 
 ```
-@csv"./path/to/my/file.csv"
+[caption](./path/to/my/file.csv)
 ```
 
 ## Example Output (markdown)

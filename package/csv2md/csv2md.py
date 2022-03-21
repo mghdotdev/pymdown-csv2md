@@ -5,7 +5,7 @@ import logging
 import re
 import os
 
-RE_CSV_FILE_INCLUDE = r'@csv"([^\s"]+\.csv)"'
+RE_CSV_FILE_INCLUDE = r'\[([^\]]*)\]\(([^\s\)]+\.csv)\)'
 
 logging.basicConfig()
 LOGGER_NAME = 'csv2md'
@@ -34,7 +34,7 @@ class Cvs2MdProcessor(Preprocessor):
 	def resolve_file_path(self, file_path):
 		return os.path.normpath(os.path.join(self.base_path, os.path.expanduser(file_path)))
 	
-	def get_table_lines(self, file_path):
+	def get_table_lines(self, file_path, caption):
 		table_lines = []
 		try:
 			file_path = self.resolve_file_path(file_path)
@@ -43,7 +43,8 @@ class Cvs2MdProcessor(Preprocessor):
 			else:
 				markdown_table = MDTable(file_path, None, self.padding, self.delimiter, self.quotechar, self.escapechar)
 				table = markdown_table.get_table()
-				table_lines = list(map(replace_new_lines, re.split('(?<=\\|)\\n', table)))
+				table_lines.append('<!-- ' + caption + '-->')
+				table_lines.extend(list(map(replace_new_lines, re.split('(?<=\\|)\\n', table))))
 				table_lines.append('\n')
 				self.cache[file_path] = table_lines
 		except Exception as e:
@@ -59,8 +60,11 @@ class Cvs2MdProcessor(Preprocessor):
 			for match in matches:
 				total_match = match.group(0)
 
+				# caption
+				caption = match.group(1)
+
 				# Get table text
-				result = self.get_table_lines(match.group(1))
+				result = self.get_table_lines(match.group(2), caption)
 
 				# Output result to total_result
 				if len(result) == 0:

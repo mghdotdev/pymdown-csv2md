@@ -13,13 +13,13 @@
 
 # Example Output
 
-@csv"./package/tests/fixtures/example.csv"
+[Test1](./package/tests/fixtures/example.csv)
 
-@csv"./package/tests/fixtures/example.csv"
+[Test2](./package/tests/fixtures/example.csv)
 
-@csv"./package/tests/fixtures/example.csv"
-@csv"./package/tests/fixtures/example.csv"
+[Test3](./package/tests/fixtures/example.csv)
+[Test4](./package/tests/fixtures/example.csv)
 
-@csv"./package/tests/fixtures/example2.csv"
+[Test5](./package/tests/fixtures/example2.csv)
 
 Here is something else
