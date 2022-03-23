@@ -1,2 +1,5 @@
-Markdown>=3.3.6
-mdtable>=0.2
+click==8.0.4
+colorama==0.4.4
+csv2md==1.1.2
+Markdown==3.3.6
+pymdown-extensions==9.3

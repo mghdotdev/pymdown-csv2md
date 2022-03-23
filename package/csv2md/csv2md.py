@@ -1,6 +1,6 @@
 from markdown.extensions import Extension
 from markdown.preprocessors import Preprocessor
-from mdtable import MDTable
+from csv2md.table import Table
 import logging
 import re
 import os
@@ -26,13 +26,14 @@ class Cvs2MdProcessor(Preprocessor):
 
 		# Set Config
 		self.base_path = config['base_path'][0]
-		self.padding = config['padding'][0]
 		self.delimiter = config['delimiter'][0]
 		self.quotechar = config['quotechar'][0]
-		self.escapechar = config['escapechar'][0]
 	
 	def resolve_file_path(self, file_path):
 		return os.path.normpath(os.path.join(self.base_path, os.path.expanduser(file_path)))
+	
+	def get_file(self, file_path):
+		return open(file_path, mode='r', encoding='utf8')
 	
 	def get_table_lines(self, file_path, caption):
 		table_lines = []
@@ -41,14 +42,15 @@ class Cvs2MdProcessor(Preprocessor):
 			if file_path in self.cache:
 				table_lines = self.cache[file_path]
 			else:
-				markdown_table = MDTable(file_path, None, self.padding, self.delimiter, self.quotechar, self.escapechar)
-				table = markdown_table.get_table()
+				file_contents = self.get_file(file_path)
+				table = Table.parse_csv(file_contents, self.delimiter, self.quotechar)
+				table_markdown = table.markdown()
+				table_lines = list(map(replace_new_lines, re.split('(?<=\\|)\\n', table_markdown)))
 				table_lines.append('<!-- ' + caption + '-->')
-				table_lines.extend(list(map(replace_new_lines, re.split('(?<=\\|)\\n', table))))
 				table_lines.append('\n')
 				self.cache[file_path] = table_lines
 		except Exception as e:
-			log.exception(' Could not find file: {}'.format(file_path))
+			log.exception(' Error parsing file: {}'.format(file_path))
 		return table_lines
 
 	def run(self, lines = []):
@@ -88,10 +90,6 @@ class Csv2MdExtension(Extension):
 				'.',
 				'Base path from where relative paths are calculated.'
 			],
-			'padding': [
-				1,
-				'Padding to use in raw formatted markdown table.'
-			],
 			'delimiter':  [
 				",",
 				'Delimiter character in CSV file.'
@@ -99,10 +97,6 @@ class Csv2MdExtension(Extension):
 			'quotechar': [
 				'"',
 				'Quote character in CSV file.'
-			],
-			'escapechar':  [
-				"",
-				'Escape character in CSV file.'
 			]
 		}
 

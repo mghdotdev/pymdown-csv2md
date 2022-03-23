@@ -19,7 +19,7 @@ def get_requirements( req ):
 
 setuptools.setup(
 	name = 'pymdown-csv2md',
-	version = '2.0.0',
+	version = '3.0.0',
 	author = 'Max Hegler',
 	author_email = 'maxghegler@gmail.com',
 	description = 'A Python-Markdown extension for converting .csv file to markdown tables inline.',
